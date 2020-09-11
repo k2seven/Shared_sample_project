@@ -19,6 +19,7 @@ public class Test : MonoBehaviour {
 			go.name = 'lua_obj'
 		");
 	}
+	//12312312312312312312
 	
 	// Update is called once per frame
 	void Update () {
