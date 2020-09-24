@@ -1,0 +1,21 @@
+local speed = 5
+
+function start()
+	print("Hello world")
+end
+
+function update()
+
+	local offset = 0
+
+	if CS.UnityEngine.Input.GetKey(CS.UnityEngine.KeyCode.RightArrow) then
+		offset = CS.UnityEngine.Time.deltaTime*speed
+	elseif CS.UnityEngine.Input.GetKey(CS.UnityEngine.KeyCode.LeftArrow) then
+		offset = -CS.UnityEngine.Time.deltaTime*speed
+	end
+
+	if offset ~= 0 then
+		self.transform.position = self.transform.position - CS.UnityEngine.Vector3(0 , 0 , offset)
+	end
+end
+
