@@ -52,6 +52,15 @@
 				return o;
 			}
 			
+
+			float when_lt(float x,float y)
+			{
+				return max(sign(y-x),0.0);
+			}
+			float when_gt(float x,float y)
+			{
+				return max(sign(x-y),0.0);
+			}
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 udf_col = tex2D(_MainTex, i.uv);
@@ -61,9 +70,12 @@
 				fixed4 out_col = tex2D(_RampTex, ramp_uv);
 				udf_col = out_col;
 				float rtCol = tex2D(_RtTex, i.uv);
-				if (udf_v > 0.6){
-					udf_col.a = rtCol.r;
-				}
+				// if (udf_v > 0.6){
+				// 	udf_col.a = rtCol.r;
+				// }
+				// udf_col.a *= when_lt(udf_v,0.6);
+				// udf_col.a += when_gt(udf_v,0.6)*rtCol.r;
+				udf_col.a = udf_col.a * step(udf_v,0.6) + (1-step(udf_v,0.6))*rtCol.r;
 				return udf_col;
 			}
 			ENDCG
