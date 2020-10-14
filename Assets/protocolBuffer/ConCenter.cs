@@ -35,6 +35,20 @@ public class ConCenter : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void CreatSendPb (){
+		TestForProto tbProto = new TestForProto();
+		tbProto.Name = nameT.text;
+		tbProto.Age = int.Parse(ageT.text);
+		string pnum = phoneNumT.text;
+		for(int i = 0;i < pnum.Length;i++){
+			tbProto.PhoneNum.Add(int.Parse(pnum[i].ToString()));
+		}
+
+		byte[] dataBytes = tbProto.ToByteArray();
+		this.dataBytes = dataBytes;
+
+
+
+
 		TestForProto cbProto = TestForProto.Parser.ParseFrom(this.dataBytes);
 		rNameT.text = cbProto.Name;
 		rAgeT.text = cbProto.Age.ToString();
