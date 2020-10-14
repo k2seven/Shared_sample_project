@@ -1,0 +1,9 @@
+
+syntax = "proto3";		//proto语法版本
+package jaihk662;		//包名
+message TestForProto	//一个message相当于一个类
+{
+    string name = 1;			//后面的 = 1是参数标签，必须有
+    int32 age = 2;
+    repeated int32 pos = 3;		//repeated可以理解为List，等价于List<int> pos;
+}

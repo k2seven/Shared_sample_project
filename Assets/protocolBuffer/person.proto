@@ -1,0 +1,10 @@
+
+syntax = "proto3";		//proto语法版本
+package pbTest;     //包名
+option csharp_namespace = "Google.Protobuf.pbTest.Person";
+message TestForProto	//一个message相当于一个类
+{
+    string name = 1;			//后面的 = 1是参数标签，必须有
+    int32 age = 2;
+    repeated int32 phoneNum = 3;		//repeated可以理解为List，等价于List<int> pos;
+}
