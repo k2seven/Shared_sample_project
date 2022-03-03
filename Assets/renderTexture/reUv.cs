@@ -35,7 +35,7 @@ public class reUv : MonoBehaviour {
 			ca.SetReplacementShader(sc,"RenderType");
             ca.targetTexture = rT;
             i++;
-            Texture l = new Texture();
+            Texture l;
             if(i%2 == 1){
                 l = cT;
             }else{
